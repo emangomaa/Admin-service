@@ -1,0 +1,35 @@
+const express = require("express");
+const adminRouter = require("./admin.routes");
+const zoneRouter = require("./zone.routes");
+const carTypeRouter = require("./carType.routes");
+const settingRoutes = require("./setting.routes");
+const voucherRouter = require("./voucher.routes");
+const corporateRouter = require("./corporate.routes");
+const knowledgeBaseRouter = require("./knowledgeBase.routes");
+const ticketRouter = require("./ticket.routes");
+const corporate_customerRouter = require("./corporate_customer.routes");
+const pinPasswordRouter = require("./pin_password.routes");
+const discountRequestRouter = require("./discount_request.routes");
+const discountProgramRouter = require("./discount_program.routes");
+const staticMessageRouter = require("./staticMessage.routes");
+const logsRouter = require("./logs.routes");
+const analysisRouter = require("./analysis.routes");
+const adminApiRouter = express.Router();
+
+adminApiRouter.use("/zone", zoneRouter);
+adminApiRouter.use("/voucher", voucherRouter);
+adminApiRouter.use("/corporate", corporateRouter);
+adminApiRouter.use("/corporate-user", corporate_customerRouter);
+adminApiRouter.use("/pinPassword", pinPasswordRouter);
+adminApiRouter.use("/staticMessage", staticMessageRouter);
+adminApiRouter.use("/log", logsRouter);
+adminApiRouter.use("/analysis", analysisRouter);
+adminApiRouter.use("/car-type", carTypeRouter);
+adminApiRouter.use("/setting", settingRoutes);
+adminApiRouter.use("/help/knowledge-base", knowledgeBaseRouter);
+adminApiRouter.use("/help/ticket", ticketRouter);
+adminApiRouter.use("/discount/discount-request", discountRequestRouter);
+adminApiRouter.use("/discount/discount-program", discountProgramRouter);
+adminApiRouter.use("/", adminRouter);
+
+module.exports = adminApiRouter;
