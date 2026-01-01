@@ -84,7 +84,7 @@ const createCorporateUser = asyncHandler(async (req, res, next) => {
       // 3- create user invite and send invitation
 
       sgMail.setApiKey(
-        "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"
+        process.env.SG_KEY
       );
       const msg = {
         to: email,
